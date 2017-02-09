@@ -1,0 +1,25 @@
+{
+  "name": "robot-prob",
+  "version": "1.0.0",
+  "description": "informatica generala challenge",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cubbic/RobotProb.git"
+  },
+  "keywords": [
+    "pathfinding"
+  ],
+  "author": "cubb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cubbic/RobotProb/issues"
+  },
+  "homepage": "https://github.com/cubbic/RobotProb#readme",
+  "dependencies": {
+    "pathfinding": "^0.4.18"
+  }
+}

@@ -111,3 +111,15 @@ function drawRobotTile(posX, posY) {
     stage.add(layer);
   };
 }
+// clears map for pathfinding
+function clearMap(map) {
+  for (var i = 0; i < map.length; i++) {
+    for (var j = 0; j < map[i].length; j++) {
+      if (map[i][j] != 0 && map[i][j] != 1) {
+        map[i][j] = 0;
+      }
+    }
+  }
+  return map;
+}
+clearMap(map);
