@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cubbic/RobotProb#readme",
   "dependencies": {
+    "browserify": "^14.0.0",
     "pathfinding": "^0.4.18"
   }
 }

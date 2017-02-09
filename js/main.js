@@ -1,3 +1,5 @@
+var PF = require('pathfinding');
+
 // first we need to create a stage
 var stage = new Konva.Stage({
   container: 'canvas', // id of container <div>
@@ -11,6 +13,7 @@ var layer = new Konva.Layer();
 // 0 - floor
 // 8 - exit 
 // 9 - robot
+//
 var map = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -111,6 +114,19 @@ function drawRobotTile(posX, posY) {
     stage.add(layer);
   };
 }
+
+function drawPathTile(posX, posY) {
+  var pathTile = new Konva.Rect({
+    x: posX,
+    y: posY,
+    width: 40,
+    height: 40,
+    fill: 'red',
+    stroke: 'black',
+    strokeWidth: 2
+  });
+  layer.add(pathTile);
+}
 // clears map for pathfinding
 function clearMap(map) {
   for (var i = 0; i < map.length; i++) {
@@ -122,4 +138,12 @@ function clearMap(map) {
   }
   return map;
 }
-clearMap(map);
+
+function getPath(map) {
+  map = clearMap(map);
+  var finder = new PF.AStarFinder();
+  var grid = new PF.Grid(map);
+  var path = finder.findPath(5, 5, 7, 1, grid);
+  return path;
+}
+getPath(map);
