@@ -5,7 +5,7 @@ var PF = require('pathfinding');
 var stage = new Konva.Stage({
   container: 'canvas', // id of container <div>
   width: 500,
-  height: 500
+  height: 350
 });
 // then create layer
 var layer = new Konva.Layer();
@@ -127,6 +127,7 @@ function drawPathTile(posX, posY) {
     strokeWidth: 2
   });
   layer.add(pathTile);
+  stage.add(layer);
 }
 // clears map for pathfinding
 function clearMap(map) {
@@ -144,10 +145,27 @@ function getPath(map) {
   map = clearMap(map);
   var finder = new PF.AStarFinder();
   var grid = new PF.Grid(map);
-  var path = finder.findPath(5, 5, 7, 1, grid);
+  var path = finder.findPath(9, 2, 1, 7, grid);
   return path;
 }
-getPath(map);
+
+function drawPath() {
+  var path = getPath(map);
+  console.log(path);
+  for (var i = 0; i < path.length; i++) {
+    var posX = path[i][0] * 40;
+    var posY = path[i][1] * 40;
+    drawPathTile(posX, posY);
+  }
+
+}
+
+var generatePathBtn = document.getElementById('generate-path-btn');
+generatePathBtn.onclick = function() {
+  drawPath();
+  console.log("yay");
+
+}
 },{"pathfinding":4}],2:[function(require,module,exports){
 module.exports = require('./lib/heap');
 
