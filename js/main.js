@@ -151,7 +151,7 @@ function getPath(map) {
 function drawPath() {
   var path = getPath(map);
   console.log(path);
-  for (var i = 0; i < path.length; i++) {
+  for (var i = 1; i < path.length; i++) {
     var posX = path[i][0] * 40;
     var posY = path[i][1] * 40;
     drawPathTile(posX, posY);
@@ -162,6 +162,4 @@ function drawPath() {
 var generatePathBtn = document.getElementById('generate-path-btn');
 generatePathBtn.onclick = function() {
   drawPath();
-  console.log("yay");
-
 }
